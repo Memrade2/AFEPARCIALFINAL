@@ -1,5 +1,5 @@
 <body>
-    <h1>Reporte de Administradores</h1>
+    <h1>Reporte del Administrador: {{ $administrador->id }}</h1>
     <table width="100%" border="1px">
         <tr>
             <td>Correlativo</td>

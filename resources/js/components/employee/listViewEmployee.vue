@@ -29,6 +29,10 @@
             <button @click="editItem(employee)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
+
+            <a href="#" class="btn btn-info" @click="generateReport(employee.id)">
+              <i class="fa fa-doc"></i> Reporte</a
+            >
           </td>
         </tr>
       </tbody>
@@ -78,6 +82,9 @@ export default {
       //console.log("edit item");
       this.$emit("reloadedit", employee);
       //this.edit = true;
+    },
+    generateReport(id) {
+      window.open("/generateRepbyEmpl/" + id);
     },
   },
 };

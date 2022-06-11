@@ -76,6 +76,7 @@
         ]"
       />
     </form>
+    <a href="#" class="btn btn-info" @click="generateReport()"> Reporte General</a>
   </div>
 </template>
 
@@ -208,6 +209,9 @@ export default {
         this.icon_name = "arrow-up-short-wide";
       }
       console.log(this.icon_name);
+    },
+    generateReport() {
+      window.open("/generateRepEmpl");
     },
   },
   created() {
