@@ -17,14 +17,9 @@ class SubsidiaryController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function list()
     {
-        //
+        return Subsidiary::orderBy('id', 'ASC')->get();
     }
 
     /**
@@ -44,18 +39,7 @@ class SubsidiaryController extends Controller
      * @param  \App\Models\Subsidiary  $subsidiary
      * @return \Illuminate\Http\Response
      */
-    public function show(Subsidiary $subsidiary)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Subsidiary  $subsidiary
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Subsidiary $subsidiary)
+    public function show($id)
     {
         //
     }
@@ -67,7 +51,7 @@ class SubsidiaryController extends Controller
      * @param  \App\Models\Subsidiary  $subsidiary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subsidiary $subsidiary)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +62,7 @@ class SubsidiaryController extends Controller
      * @param  \App\Models\Subsidiary  $subsidiary
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subsidiary $subsidiary)
+    public function destroy($id)
     {
         //
     }

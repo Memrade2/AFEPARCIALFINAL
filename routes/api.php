@@ -13,6 +13,7 @@ use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\SubsidiaryController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
 use App\Http\Controllers\VehicleTypeController;
@@ -221,13 +222,13 @@ Route::prefix('/employee')->group(
     }
 );
 
-Route::get('/subsidiaries', [EmployeeController::class, 'index']);
+Route::get('/subsidiaries', [SubsidiaryController::class, 'index']);
 
 Route::prefix('/subsidiary')->group(
     function () {
-        //Route::post('/store', [EmployeeController::class, 'store']);
-        //Route::put('/{id}', [EmployeeController::class, 'update']);
-        //Route::delete('/{id}', [EmployeeController::class, 'destroy']);
-        Route::get('/list', [EmployeeController::class, 'list']);
+        //Route::post('/store', [SubsidiaryController::class, 'store']);
+        //Route::put('/{id}', [SubsidiaryController::class, 'update']);
+        //Route::delete('/{id}', [SubsidiaryController::class, 'destroy']);
+        Route::get('/list', [SubsidiaryController::class, 'list']);
     }
 );
