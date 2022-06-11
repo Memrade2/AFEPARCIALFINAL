@@ -74,6 +74,10 @@ Route::get('/products', function () {
     return view('vue/product');
 });
 
+Route::get('/administrators', function () {
+    return view('vue/administrator');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

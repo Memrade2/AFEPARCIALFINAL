@@ -14,17 +14,23 @@ class AdministratorController extends Controller
      */
     public function index()
     {
-        //
+        $administrators = Administrator::with('user')->OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $administrators->total(),
+                'current_page' => $administrators->currentPage(),
+                'per_page' => $administrators->perPage(),
+                'last_page' => $administrators->lastPage(),
+                'from' => $administrators->firstItem(),
+                'to' => $administrators->lastPage(),
+            ],
+            'administrators' => $administrators
+        ];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function list()
     {
-        //
+        return Administrator::with('user')->orderBy('id', 'ASC')->get();
     }
 
     /**
@@ -35,7 +41,12 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $administrator = new Administrator();
+        $administrator->administrator_name = $request->administrator["administrator_name"];
+        $administrator->dui = $request->administrator["dui"];
+        $administrator->phone = $request->administrator["phone"];
+        $administrator->save();
+        return $administrator;
     }
 
     /**
@@ -44,18 +55,7 @@ class AdministratorController extends Controller
      * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrator $administrator)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Administrator  $administrator
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Administrator $administrator)
+    public function show($id)
     {
         //
     }
@@ -67,7 +67,7 @@ class AdministratorController extends Controller
      * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrator $administrator)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,7 +78,7 @@ class AdministratorController extends Controller
      * @param  \App\Models\Administrator  $administrator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrator $administrator)
+    public function destroy($id)
     {
         //
     }

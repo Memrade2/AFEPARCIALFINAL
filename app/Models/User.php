@@ -61,4 +61,7 @@ class User extends Authenticatable
     public function sellers(){
         return $this->hasMany(Seller::class);
     }
+    public function administrators(){
+        return $this->hasMany(Administrator::class);
+    }
 }

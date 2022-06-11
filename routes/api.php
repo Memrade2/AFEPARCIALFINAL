@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryTypeController;
+use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
@@ -194,5 +195,16 @@ Route::prefix('/product')->group(
         Route::put('/{id}', [ProductController::class, 'update']);
         Route::delete('/{id}', [ProductController::class, 'destroy']);
         Route::get('/list', [ProductController::class, 'list']);
+    }
+);
+
+Route::get('/administrators', [AdministratorController::class, 'index']);
+
+Route::prefix('/administrator')->group(
+    function () {
+        Route::post('/store', [AdministratorController::class, 'store']);
+        //Route::put('/{id}', [AdministratorController::class, 'update']);
+        Route::delete('/{id}', [AdministratorController::class, 'destroy']);
+        Route::get('/list', [AdministratorController::class, 'list']);
     }
 );

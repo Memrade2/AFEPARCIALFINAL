@@ -53,69 +53,19 @@
                 https://spatie.be/docs/laravel-permission/v5/basic-usage/blade-directives#content-roles
                 -->
                 @role('Administrator')
-                <a class="navbar-brand" href="{{ url('/vehicle') }}">
-                    Vehículos
+                <a class="navbar-brand" href="{{ url('/administrators') }}">
+                    Administradores
                 </a>
-                @endrole
-                <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
-                    Vehículos dashboard
-                </a>
-                @role('Administrator')
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Mntto. Catalogos
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
-                            <a class="dropdown-item" href="{{ url('/departments') }}">
-                                Departamentos
+                            <a class="dropdown-item" href="{{ url('/administrators') }}">
+                                Administradores
                             </a>
                          </li>
-                         <li>
-                            <a class="dropdown-item" href="{{ url('/municipalities') }}">
-                                Municipios
-                            </a>
-                         </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/brand') }}">
-                            Marcas
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/accessories') }}">
-                            Accesorios
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/fuel_type') }}">
-                            Tipo de Combustible
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/vehicle_type') }}">
-                            Tipo de Vehículo
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/accessory_type') }}">
-                            Tipo de Accesorio
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/roles') }}">
-                            Roles
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/clients') }}">
-                            Clientes
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/users') }}">
-                            Usuarios
-                        </a>
-                     </li>
                     </ul>
                 </div>
                 @endrole
