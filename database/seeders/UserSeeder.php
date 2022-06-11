@@ -17,46 +17,46 @@ class UserSeeder extends Seeder
     {
         $admins = [
             [
-                'name' => 'El mero Don Jeff',
-                'last_name' => 'Pineda',
-                'username' => 'maestro.pineda',
-                'email' => 'maestro.pineda@gmail.com',
+                'name' => 'Guillermo',
+                'last_name' => 'hernandez',
+                'username' => 'memrade',
+                'email' => 'memrade@gmail.com',
                 'password' => bcrypt('@dmin123'),
                 'role_id' => 1
             ],
             [
-                'name' => 'Don Nico',
-                'last_name' => 'Escobar',
-                'username' => 'nico.escobar',
-                'email' => 'nico.escobar@gmail.com',
+                'name' => 'Giovanni',
+                'last_name' => 'Tzec',
+                'username' => 'tzec',
+                'email' => 'tzec@gmail.com',
                 'password' => bcrypt('@dmin123'),
                 'role_id' => 1
             ],
         ];
         $clients = [
             [
-                'name' => 'Guillermo',
-                'last_name' => 'Hernandez',
-                'username' => 'guillermo.hernandez',
-                'email' => 'guillermo.hernandez@gmail.com',
+                'name' => 'Ernesto',
+                'last_name' => 'Sanchez',
+                'username' => 'ernesto',
+                'email' => 'ernesto@gmail.com',
                 'password' => bcrypt('cli3nt123'),
                 'role_id' => 2
             ],
         ];
         $advisers = [
             [
-                'name' => 'Bryan',
-                'last_name' => 'Gomez',
-                'username' => 'bryan.gomez',
-                'email' => 'bryan.gomez@gmail.com',
+                'name' => 'Josue',
+                'last_name' => 'Andrade',
+                'username' => 'josue',
+                'email' => 'josue@gmail.com',
                 'password' => bcrypt('g@to123'),
                 'role_id' => 3
             ],
             [
-                'name' => 'Edgardo',
-                'last_name' => 'Argueta',
-                'username' => 'edgardo.argueta',
-                'email' => 'edgardo.argueta@gmail.com',
+                'name' => 'Jose',
+                'last_name' => 'Sanchez',
+                'username' => 'jose',
+                'email' => 'jose@gmail.com',
                 'password' => bcrypt('@dviser123'),
                 'role_id' => 3
             ],
