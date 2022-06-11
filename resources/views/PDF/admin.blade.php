@@ -7,13 +7,13 @@
             <td>DUI</td>
             <td>Telefono</td>
         </tr>
-        @foreach ($administrador as $value)
+        
             <tr>
-                <td>{{ $value->id }}</td>
-                <td>{{ $value->administrator_name }}</td>
-                <td>{{ $value->dui }}</td>
-                <td>{{ $value->phone }}</td>
+                <td>{{ $administrador->id }}</td>
+                <td>{{ $administrador->administrator_name }}</td>
+                <td>{{ $administrador->dui }}</td>
+                <td>{{ $administrador->phone }}</td>
             </tr>
-        @endforeach
+        
     </table>
 </body>

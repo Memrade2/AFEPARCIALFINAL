@@ -1,7 +1,8 @@
 <template>
   <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
     <div class="show-form">
-      <h1>Agregar Administrador</h1>
+      <h1>Agregar Administradosr</h1>
+
       <font-awesome-icon :icon="icon_name" @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']" />
     </div>
@@ -36,7 +37,9 @@
           'plus',
         ]"
       />
+     
     </form>
+    <a href="#" class="btn btn-info" @click="generateReport()"> Reporte General</a>
   </div>
 </template>
 
@@ -104,6 +107,9 @@ export default {
         this.icon_name = "arrow-up-short-wide";
       }
       console.log(this.icon_name);
+    },
+    generateReport() {
+      window.open("/generateRepAdmin");
     },
   },
   created() {

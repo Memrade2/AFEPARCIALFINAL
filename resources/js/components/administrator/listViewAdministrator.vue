@@ -16,7 +16,11 @@
           <td>
             <button @click="removeItem(administrator.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
-            </button>            
+            </button>  
+            
+            <a href="#" class="btn btn-info" @click="generateReport(administrator.id)">
+              <i class="fa fa-doc"></i> Reporte</a
+            >
           </td>
         </tr>
       </tbody>
@@ -61,7 +65,10 @@ export default {
           //delete action
         }
       });
-    },    
+    }, 
+    generateReport(id) {
+      window.open("/generateRepByAdmin/" + id);
+    },   
   },
 };
 </script>

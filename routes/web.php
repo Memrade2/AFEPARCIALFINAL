@@ -88,7 +88,7 @@ Route::get('/subsidiaries', function () {
 });
 
 Route::get('generateRepAdmin', [ReportController::class, 'generateRepAdmin']);
-Route::get('generateRepByAdmin', [ReportController::class, 'generateRepByAdmin']);
+Route::get('generateRepByAdmin/{id}', [ReportController::class, 'generateRepByAdmin']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
