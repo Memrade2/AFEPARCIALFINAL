@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,8 @@ Route::get('/subsidiaries', function () {
     return view('vue/subsidiary');
 });
 
+Route::get('generateRepAdmin', [ReportController::class, 'generateRepAdmin']);
+Route::get('generateRepByAdmin', [ReportController::class, 'generateRepByAdmin']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
