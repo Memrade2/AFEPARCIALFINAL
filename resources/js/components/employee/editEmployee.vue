@@ -9,25 +9,63 @@
     <form v-show="!show">
       <div class="form-group">
         <label>Nombre</label>
-        <input class="form-control form-control-sm" type="text" v-model="accessory.accessory_name"
+        <input class="form-control form-control-sm" type="text" v-model="employee.employee_name"
           v-on:keyup="validateTextNumber()" />
-        <div class="danger" v-if="messageErrorAccessoryName">Verificar datos</div>
+        <div class="danger" v-if="messageErrorEmployeeName">Verificar datos</div>
       </div>
       <div class="form-group">
-        <label>Tipo de accesorio</label>
+        <label>Edad</label>
+        <input class="form-control form-control-sm" type="text" v-model="employee.age" v-mask="'##'" />
+        <div class="danger" v-if="messageErrorEmployeeAge">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Sueldo Base</label>
+        <input class="form-control form-control-sm" type="number" v-model="employee.base_salary" />
+        <div class="danger" v-if="messageErrorEmployeeBaseSalary">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Direccion</label>
+        <input class="form-control form-control-sm" type="text" v-model="employee.address"
+          v-on:keyup="validateAddress()" />
+        <div class="danger" v-if="messageErrorEmployeeAddress">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Foto</label>
+        <input class="form-control form-control-sm" type="text" v-model="employee.photo" />
+        <div class="danger" v-if="messageErrorEmployeePhoto">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Administrador</label>
 
-        <select v-model="accessory.accessory_type_id" class="form-control form-control-sm"
-          v-on:change="validateSelectAccessoryType()">
+        <select v-model="employee.administrator_id" class="form-control form-control-sm"
+          v-on:change="validateSelectAdministrator()">
           <option value="0" selected>Seleccione</option>
-          <option v-for="accessory_type in accessory_types" v-bind:key="accessory_type.id" :value="accessory_type.id">
-            {{ accessory_type.accessory_type_name }}
+          <option v-for="administrator in administrators" v-bind:key="administrator.id" :value="administrator.id">
+            {{ administrator.administrator_name }}
           </option>
         </select>
-        <div class="danger" v-if="messageErrorAccessoryType">Verificar datos</div>
+        <div class="danger" v-if="messageErrorAdministrator">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Sucursal</label>
+
+        <select v-model="employee.subsidiary_id" class="form-control form-control-sm"
+          v-on:change="validateSelectSucursal()">
+          <option value="0" selected>Seleccione</option>
+          <option v-for="subsidiary in subsidiaries" v-bind:key="subsidiary.id" :value="subsidiary.id">
+            {{ subsidiary.subsidiary_name }}
+          </option>
+        </select>
+        <div class="danger" v-if="messageErrorSucursal">Verificar datos</div>
       </div>
       <font-awesome-icon icon="fa-file-pen" @click.prevent="editItem()" :class="[
-        accessory.accessory_name &&
-          accessory.accessory_type_id
+        employee.employee_name &&
+          employee.age &&
+          employee.base_salary &&
+          employee.address &&
+          employee.photo &&
+          employee.administrator_id &&
+          employee.subsidiary_id
           ? 'active'
           : 'inactive',
         'plus',
@@ -39,23 +77,39 @@
 
 <script>
 export default {
-  props: ['accessory'],
+  props: ['employee'],
   data: function () {
     return {
-      accessory_types: [],
+      administrators: [],
+      subsidiaries: [],
       show: true,
       icon_name: "arrow-down-short-wide",
-      messageErrorAccessoryName: false,
-      messageErrorAccessoryType: false,
+      messageErrorEmployeeName: false,
+      messageErrorEmployeeAge: false,
+      messageErrorEmployeeBaseSalary: false,
+      messageErrorEmployeeAddress: false,
+      messageErrorEmployeePhoto: false,
+      messageErrorAdministrator: false,
+      messageErrorSucursal: false,
     };
   },
   methods: {
     editItem() {
       if (
-        this.accessory.accessory_name == "" ||
-        this.accessory.accessory_type_id == 0 ||
-        this.messageErrorAccessoryName ||
-        this.messageErrorAccessoryType
+        this.employee.employee_name == "" ||
+        this.employee.age == 0 ||
+        this.employee.base_salary == 0.0 ||
+        this.employee.address == "" ||
+        this.employee.photo == "" ||
+        this.employee.administrator_id == 0 ||
+        this.employee.subsidiary_id == 0 ||
+        this.messageErrorEmployeeName ||
+        this.messageErrorEmployeeAge ||
+        this.messageErrorEmployeeBaseSalary ||
+        this.messageErrorEmployeeAddress ||
+        this.messageErrorEmployeePhoto ||
+        this.messageErrorAdministrator ||
+        this.messageErrorSucursal
       ) {
         swal("Alerta", "Los campos deben estar completos", "error");
 
@@ -78,8 +132,8 @@ export default {
           //delete action
 
           axios
-            .put("api/accessory/" + this.accessory.id, {
-              accessory: this.accessory,
+            .put("api/employee/" + this.employee.id, {
+              employee: this.employee,
             })
             .then((response) => {
               if (response.status == 200) {
@@ -96,44 +150,54 @@ export default {
       });
 
     }, //editItem
-    getAccessoryTypes() {
+    getAdministrators() {
       axios
-        .get("api/accessory_type/list")
+        .get("api/administrator/list")
         .then((response) => {
-          this.accessory_types = response.data;
+          this.administrators = response.data;
         })
         .catch((error) => {
           console.log(error);
         });
-    }, //get AccessoryTypes
+    },
+    getSubsidiaries() {
+      axios
+        .get("api/subsidiary/list")
+        .then((response) => {
+          this.subsidiaries = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     validateTextNumber() {
-      if (this.accessory.accessory_name.search(/^[a-zA-Z0-9\s]*$/)) {
-        this.messageErrorAccessoryName = true;
+      if (this.employee.employee_name.search(/^[a-zA-Z0-9\s]*$/)) {
+        this.messageErrorEmployeeName = true;
       } else {
-        this.messageErrorAccessoryName = false;
+        this.messageErrorEmployeeName = false;
       }
-    }, //validate texto number
-
-    validateTextNumberRegistryNumber() {
-      if (this.accessory.registry_number.search(/^[a-zA-Z0-9.]+$/)) {
-        this.messageErrorRegistryNumber = true;
+    },
+    validateAddress() {
+      if (this.employee.address.search(/^[a-zA-Z0-9\s]*$/)) {
+        this.messageErrorEmployeeAddress = true;
       } else {
-        this.messageErrorRegistryNumber = false;
+        this.messageErrorEmployeeAddress = false;
       }
-    }, //validate texto number
-
-    validateText() {
-      if (this.accessory.color.search(/^[a-zA-Z\s]*$/)) {
-        this.messageErrorColor = true;
+    },
+    validateSelectAdministrator() {
+      console.log(this.employee.administrator_id);
+      if (this.employee.administrator_id == 0) {
+        this.messageErrorAdministrator = true;
       } else {
-        this.messageErrorColor = false;
+        this.messageErrorAdministrator = false;
       }
-    }, //validate texto
-    validateSelectAccessoryType() {
-      if (this.accessory.accessory_type_id == 0) {
-        this.messageErrorAccessoryType = true;
+    },
+    validateSelectSucursal() {
+      console.log(this.employee.subsidiary_id);
+      if (this.employee.subsidiary_id == 0) {
+        this.messageErrorSucursal = true;
       } else {
-        this.messageErrorAccessoryType = false;
+        this.messageErrorSucursal = false;
       }
     },
     showEdit() {
@@ -151,7 +215,8 @@ export default {
     },//cancel
   },
   created() {
-    this.getAccessoryTypes();
+    this.getAdministrators();
+    this.getSubsidiaries();
     this.showEdit();
   },
 };
