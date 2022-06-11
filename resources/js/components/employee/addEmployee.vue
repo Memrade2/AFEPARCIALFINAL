@@ -1,7 +1,7 @@
 <template>
   <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
     <div class="show-form">
-      <h1>Agregar Accessorios</h1>
+      <h1>Agregar Empleado</h1>
       <font-awesome-icon :icon="icon_name" @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']" />
     </div>
@@ -9,9 +9,14 @@
     <form v-show="!show">
       <div class="form-group">
         <label>Nombre</label>
-        <input class="form-control form-control-sm" type="text" v-model="accessory.accessory_name"
+        <input class="form-control form-control-sm" type="text" v-model="employee.employee_name"
           v-on:keyup="validateTextNumber()" />
-        <div class="danger" v-if="messageErrorAccessoryName">Verificar datos</div>
+        <div class="danger" v-if="messageErrorEmployeeName">Verificar datos</div>
+      </div>
+      <div class="form-group">
+        <label>Nombre</label>
+        <input class="form-control form-control-sm" type="text" v-model="client.dui" v-mask="'##'" />
+        <div class="danger" v-if="messageErrorEmployeeName">Verificar datos</div>
       </div>
       <div class="form-group">
         <label>Tipo de accesorio</label>
