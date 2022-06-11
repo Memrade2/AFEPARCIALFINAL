@@ -20,7 +20,8 @@ return new class extends Migration
             $table->double("base_salary");
             $table->string("address");
             $table->string("photo");
-            $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
+            $table->foreignId('administrator_id')->reference('id')->on('administrators')->nullable()->constrained();
+            $table->foreignId('subsidiary_id')->reference('id')->on('subsidiaries')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

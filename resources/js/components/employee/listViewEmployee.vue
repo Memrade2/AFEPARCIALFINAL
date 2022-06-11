@@ -3,20 +3,30 @@
     <table class="table table-hover">
       <thead>
         <th scope="col">Id</th>
-        <th scope="col">Accesorio</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Sueldo Base</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Administrador</th>
+        <th scope="col">Sucursal</th>
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <tr v-for="(accessory, index) in accessories" :key="index">
-          <td>{{ accessory.id }}</td>
-          <td>{{ accessory.accessory_name }}</td>
-          <td>{{ accessory.accessory_type!=null ? accessory.accessory_type.accessory_type_name : 'Accesorio eliminado código ' + accessory.accessory_type_id }}</td>
+        <tr v-for="(employee, index) in employees" :key="index">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.employee_name }}</td>
+          <td>{{ employee.age }}</td>
+          <td>{{ employee.base_salary }}</td>
+          <td>{{ employee.address }}</td>
+          <td>{{ employee.photo }}</td>
+          <td>{{ employee.administrator!=null ? employee.administrator.administrator_name : 'Administrador eliminado código ' + employee.administrator_id }}</td>
+          <td>{{ employee.subsidiary!=null ? employee.subsidiary.subsidiary_name : 'Sucursal eliminado código ' + employee.subsidiary_id }}</td>
           <td>
-            <button @click="removeItem(accessory.id)" class="trashcan">
+            <button @click="removeItem(employee.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
             </button>
-            <button @click="editItem(accessory)" class="pentosquarecan">
+            <button @click="editItem(employee)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
           </td>
@@ -50,7 +60,7 @@ export default {
         if (willDelete) {
           //delete action
           axios
-            .delete("api/accessory/" + id)
+            .delete("api/employee/" + id)
             .then((response) => {
               if (response.status == 200) {
                 swal("Eliminado", "El registro ha sido eliminado", "success");
@@ -64,9 +74,9 @@ export default {
         }
       });
     },
-    editItem(accessory) {
+    editItem(employee) {
       //console.log("edit item");
-      this.$emit("reloadedit", accessory);
+      this.$emit("reloadedit", employee);
       //this.edit = true;
     },
   },

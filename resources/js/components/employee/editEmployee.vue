@@ -1,7 +1,7 @@
 <template>
   <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
     <div class="show-form">
-      <h1>Editar Accesorios</h1>
+      <h1>Editar Empleado</h1>
       <font-awesome-icon :icon="icon_name" @click.prevent="showEdit()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']" />
     </div>
