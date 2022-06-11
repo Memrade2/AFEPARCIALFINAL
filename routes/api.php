@@ -220,3 +220,14 @@ Route::prefix('/employee')->group(
         Route::get('/list', [EmployeeController::class, 'list']);
     }
 );
+
+Route::get('/subsidiaries', [EmployeeController::class, 'index']);
+
+Route::prefix('/subsidiary_name')->group(
+    function () {
+        //Route::post('/store', [EmployeeController::class, 'store']);
+        //Route::put('/{id}', [EmployeeController::class, 'update']);
+        //Route::delete('/{id}', [EmployeeController::class, 'destroy']);
+        Route::get('/list', [EmployeeController::class, 'list']);
+    }
+);

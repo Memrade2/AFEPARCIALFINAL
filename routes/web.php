@@ -82,6 +82,10 @@ Route::get('/employees', function () {
     return view('vue/employee');
 });
 
+Route::get('/subsidiaries', function () {
+    return view('vue/subsidiary');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
