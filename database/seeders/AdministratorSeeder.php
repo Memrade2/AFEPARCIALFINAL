@@ -27,19 +27,19 @@ class AdministratorSeeder extends Seeder
                 'administrator_name' => 'Giovanni Tzec',
                 'dui' => '03214678-0',
                 'phone' => '22222222',
-                'user_id' => '1'
+                'user_id' => '2'
             ],
             [
                 'administrator_name' => 'Jose Sanchez',
                 'dui' => '05267670-3',
                 'phone' => '77777777',
-                'user_id' => '1'
+                'user_id' => '3'
             ],
             [
                 'administrator_name' => 'administrador',
                 'dui' => '00000234-0',
                 'phone' => '22222222',
-                'user_id' => '1'
+                'user_id' => '4'
             ],
             
         ];

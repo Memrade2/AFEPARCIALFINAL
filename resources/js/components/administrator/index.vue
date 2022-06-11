@@ -13,7 +13,7 @@
 
 <!-- Traemos la view de la data -->
     <list-view-administrator class="pt-3"
-      :accessories="accessories"
+      :administrators="administrators"
       v-on:reloadlist="getList()"
       v-on:reloadedit="loadEdit"
     />
@@ -54,14 +54,12 @@
 
 <script>
 import addAdministrator from "./addAdministrator.vue";
-import editAdministrator from "./editAdministrator.vue";
 import listViewAdministrator from "./listViewAdministrator.vue";
 
 export default {
   components: {
     addAdministrator,
     listViewAdministrator,
-    editAdministrator,
   },
   data: function () {
     return {
@@ -109,11 +107,11 @@ computed: {
 
   methods: {
     getList(page) {
-      var urlAccessories = "api/accessories?page=" + page;
+      var urlAdministrators = "api/administrators?page=" + page;
       axios
-        .get(urlAccessories)
+        .get(urlAdministrators)
         .then((response) => {
-          this.accessories = response.data.accessories.data;
+          this.administrators = response.data.administrators.data;
           this.pagination = response.data.pagination;
         })
         .catch((error) => {
