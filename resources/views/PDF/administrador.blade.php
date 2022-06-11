@@ -8,10 +8,10 @@
         </tr>
         @foreach ($administrador as $value)
             <tr>
-                <td>{{ $value->correlativo }}</td>
-                <td>{{ $value->nombre }}</td>
+                <td>{{ $value->id }}</td>
+                <td>{{ $value->administrator_name }}</td>
                 <td>{{ $value->dui }}</td>
-                <td>{{ $value->tel }}</td>
+                <td>{{ $value->phone }}</td>
             </tr>
         @endforeach
     </table>
