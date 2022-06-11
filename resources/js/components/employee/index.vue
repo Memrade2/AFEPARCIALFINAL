@@ -109,11 +109,11 @@ computed: {
 
   methods: {
     getList(page) {
-      var urlAccessories = "api/accessories?page=" + page;
+      var urlEmployees = "api/employees?page=" + page;
       axios
-        .get(urlAccessories)
+        .get(urlEmployees)
         .then((response) => {
-          this.accessories = response.data.accessories.data;
+          this.employees = response.data.employees.data;
           this.pagination = response.data.pagination;
         })
         .catch((error) => {
