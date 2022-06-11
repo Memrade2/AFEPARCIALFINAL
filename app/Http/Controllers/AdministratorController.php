@@ -80,6 +80,11 @@ class AdministratorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $administrators = Administrator::find($id);
+        if ($administrators) {
+            $administrators->delete();
+            return "Administrador eliminado";
+        }
+        return "Administrador no encontrado";
     }
 }

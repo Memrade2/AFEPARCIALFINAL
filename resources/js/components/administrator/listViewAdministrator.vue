@@ -16,10 +16,7 @@
           <td>
             <button @click="removeItem(administrator.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
-            </button>
-            <button @click="editItem(administrator)" class="pentosquarecan">
-              <font-awesome-icon icon="pen-to-square" />
-            </button>
+            </button>            
           </td>
         </tr>
       </tbody>
@@ -64,12 +61,7 @@ export default {
           //delete action
         }
       });
-    },
-    editItem(administrator) {
-      //console.log("edit item");
-      this.$emit("reloadedit", administrator);
-      //this.edit = true;
-    },
+    },    
   },
 };
 </script>

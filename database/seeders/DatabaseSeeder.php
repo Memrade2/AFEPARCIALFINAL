@@ -41,5 +41,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(SellerSeeder::class);
         $this->call(ProductSeeder::class);
+        $this->call(AdministratorSeeder::class);
     }
 }
