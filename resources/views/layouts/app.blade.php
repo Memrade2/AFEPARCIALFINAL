@@ -59,42 +59,16 @@
                 <a class="navbar-brand" href="{{ url('/employees') }}">
                     Empleados
                 </a>
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mntto. Catalogos
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" href="{{ url('/administrators') }}">
-                                Administradores
-                            </a>
-                         </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ url('/employees') }}">
-                                Empleados
-                            </a>
-                         </li>
-                    </ul>
-                </div>
                 @endrole
                 @role('Client')
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mntto. Catalogos
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" href="{{ url('/sellers') }}">
-                                Vendedores
-                            </a>
-                        </li>                        
-                        <li>
-                            <a class="dropdown-item" href="{{ url('/products') }}">
-                                Products
-                            </a>
-                        </li>                        
-                    </ul>
-                </div>
+                <!--
+                <a class="navbar-brand" href="{{ url('/administrators') }}">
+                    Administradores
+                </a>
+                <a class="navbar-brand" href="{{ url('/employees') }}">
+                    Empleados
+                </a>
+                -->
                 @endrole
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->

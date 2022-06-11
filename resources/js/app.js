@@ -45,19 +45,9 @@ library.add(faPlusSquare, faTrash, faPenToSquare, faXmark,
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import IndexBrand from './components/brands/index.vue'
-import IndexFuelType from './components/fuel_types/index.vue'
-import IndexVehicleType from './components/vehicle_types/index.vue'
-import IndexVehicle from './components/vehicles/index.vue'
 import vehicleDashboard from './components/vehicles/dashboard/vehicleDashboard.vue'
-import IndexAccessoryType from './components/accessory_types/index.vue'
-import IndexDepartment from './components/departments/index.vue'
-import IndexMunicipality from './components/municipalities/index.vue'
 import IndexRole from './components/roles/index.vue'
-import IndexAccessory from './components/accessory/index.vue'
-import IndexClient from './components/clients/index.vue'
 import IndexUser from './components/users/index.vue'
-import IndexSeller from './components/seller/index.vue'
-import IndexProduct from './components/product/index.vue'
 import IndexAdministrator from './components/administrator/index.vue'
 import IndexEmployee from './components/employee/index.vue'
 
@@ -66,19 +56,9 @@ const app = new Vue({
     el: '#app',
     components: {
         IndexBrand,
-        IndexFuelType,
-        IndexVehicleType,
-        IndexVehicle,
         vehicleDashboard,
-        IndexAccessoryType,
-        IndexDepartment,
-        IndexMunicipality,
         IndexRole,
-        IndexAccessory,
-        IndexClient,
         IndexUser,
-        IndexSeller,
-        IndexProduct,
         IndexAdministrator,
         IndexEmployee,
     }
