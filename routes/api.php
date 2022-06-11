@@ -223,7 +223,7 @@ Route::prefix('/employee')->group(
 
 Route::get('/subsidiaries', [EmployeeController::class, 'index']);
 
-Route::prefix('/subsidiary_name')->group(
+Route::prefix('/subsidiary')->group(
     function () {
         //Route::post('/store', [EmployeeController::class, 'store']);
         //Route::put('/{id}', [EmployeeController::class, 'update']);
