@@ -13,7 +13,7 @@
 
 <!-- Traemos la view de la data -->
     <list-view-employee class="pt-3"
-      :accessories="accessories"
+      :employees="employees"
       v-on:reloadlist="getList()"
       v-on:reloadedit="loadEdit"
     />

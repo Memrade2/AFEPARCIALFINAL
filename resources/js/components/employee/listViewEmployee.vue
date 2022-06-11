@@ -39,7 +39,7 @@
 <script>
 
 export default {
-  props: ["accessories"],
+  props: ["employees"],
   components: {
     
   },
