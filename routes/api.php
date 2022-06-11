@@ -6,6 +6,7 @@ use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\MunicipalityController;
@@ -206,5 +207,16 @@ Route::prefix('/administrator')->group(
         //Route::put('/{id}', [AdministratorController::class, 'update']);
         Route::delete('/{id}', [AdministratorController::class, 'destroy']);
         Route::get('/list', [AdministratorController::class, 'list']);
+    }
+);
+
+Route::get('/employees', [EmployeeController::class, 'index']);
+
+Route::prefix('/employee')->group(
+    function () {
+        Route::post('/store', [EmployeeController::class, 'store']);
+        //Route::put('/{id}', [EmployeeController::class, 'update']);
+        Route::delete('/{id}', [EmployeeController::class, 'destroy']);
+        Route::get('/list', [EmployeeController::class, 'list']);
     }
 );

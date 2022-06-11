@@ -56,6 +56,9 @@
                 <a class="navbar-brand" href="{{ url('/administrators') }}">
                     Administradores
                 </a>
+                <a class="navbar-brand" href="{{ url('/employees') }}">
+                    Empleados
+                </a>
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Mntto. Catalogos
@@ -64,6 +67,11 @@
                         <li>
                             <a class="dropdown-item" href="{{ url('/administrators') }}">
                                 Administradores
+                            </a>
+                         </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url('/employees') }}">
+                                Empleados
                             </a>
                          </li>
                     </ul>

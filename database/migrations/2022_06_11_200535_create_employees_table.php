@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double("base_salary");
             $table->string("address");
             $table->string("photo");
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

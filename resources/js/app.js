@@ -59,6 +59,7 @@ import IndexUser from './components/users/index.vue'
 import IndexSeller from './components/seller/index.vue'
 import IndexProduct from './components/product/index.vue'
 import IndexAdministrator from './components/administrator/index.vue'
+import IndexEmployee from './components/employee/index.vue'
 
 
 const app = new Vue({
@@ -79,5 +80,6 @@ const app = new Vue({
         IndexSeller,
         IndexProduct,
         IndexAdministrator,
+        IndexEmployee,
     }
 });

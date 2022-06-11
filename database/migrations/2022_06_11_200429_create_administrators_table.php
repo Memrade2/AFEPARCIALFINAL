@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("administrator_name");
             $table->string("dui");
             $table->string("phone");
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
